@@ -7,7 +7,8 @@ public class UI {
 	public static void main(String[] args) {
 		
 		// Need to come up with way to take in user-provided information
-
+		
+		DataCruncher dataCruncher = new DataCruncher();
 	}
 
 }
