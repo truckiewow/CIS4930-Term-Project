@@ -10,6 +10,13 @@ public class DataCruncher {
 	String facebookUrl;
 	String linkedInUrl;
 	
+	DataStore name;
+	DataStore dob;
+	DataStore location;
+	DataStore email;
+	DataStore username;
+	DataStore url;
+	
 	public DataCruncher(){
 		
 	}
