@@ -10,11 +10,6 @@ public class DataCruncher {
 	String facebookUrl;
 	String linkedInUrl;
 	
-	//Possibly store all gathered information in arrayLists, then create methods to perform statistical analysis 
-	ArrayList<String> usernames;
-	ArrayList<String> emails;
-	ArrayList<String> states;
-	
 	public DataCruncher(){
 		
 	}
