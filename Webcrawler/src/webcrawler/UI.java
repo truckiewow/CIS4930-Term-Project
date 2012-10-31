@@ -17,6 +17,16 @@ public class UI {
 		
 		System.out.println("Please enter the number possessed of each data type. Please seperate each with a space before pressing Enter.");
 		System.out.println("Facebook URL, LinkedIn URL, Other URL, Usernames, Emails, States");
+		
+		DataStore d = new DataStore();
+
+		d.add("eggs");
+		d.add("waffle");
+		d.add("toast");
+		d.add("toast");
+		d.add("waffle");
+		d.add("waffle");
+		d.print();
 	}
 
 }

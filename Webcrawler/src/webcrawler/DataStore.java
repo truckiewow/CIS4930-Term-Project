@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class DataStore {
 	
-	ArrayList<String> data;
-	ArrayList<Integer> number;
+	public ArrayList<String> data;
+	public ArrayList<Integer> number;
 	
 	public DataStore(){
 		data = new ArrayList<String>(0);
@@ -14,7 +14,7 @@ public class DataStore {
 
 	public void add(String str){
 		if(data.contains(str)){
-			number.set(data.indexOf(str), number.get(data.indexOf(str) + 1));
+			number.set(data.indexOf(str), (number.get(data.indexOf(str)) + 1));
 		}
 		else{
 			data.add(str);
@@ -24,6 +24,33 @@ public class DataStore {
 	}
 	
 	public void sort(){
-		//sorts data from most occurences to least
+		for(int x = 1; x < number.size(); x++){
+			boolean placed = false;
+			int count = x;
+			while(placed != true){
+				if(count == 0){
+					number.add(0, number.get(x));
+					number.remove(x+1);
+					data.add(0, data.get(x));
+					data.remove(x+1);
+					placed = true;
+				}
+				else if(number.get(count-1) > number.get(x)){
+					number.add(count, number.get(x));
+					number.remove(x+1);
+					data.add(count, data.get(x));
+					data.remove(x+1);
+					placed = true;
+				}
+				else count--;
+			}
+		}
+	}
+	
+	public void print(){
+		for(int x= 0; x < data.size(); x++) {
+			System.out.println(data.get(x) + " - Occurrences: " + number.get(x));
+		}
+		System.out.println();
 	}
 }
