@@ -47,6 +47,18 @@ public class DataStore {
 		}
 	}
 	
+	public int getOccurences(int index){
+		return number.get(index);
+	}
+	
+	public int getOccurences(String data){
+		return number.get(data.indexOf(data));
+	}
+	
+	public String getData(int index){
+		return data.get(index);
+	}
+	
 	public void print(){
 		for(int x= 0; x < data.size(); x++) {
 			System.out.println(data.get(x) + " - Occurrences: " + number.get(x));
