@@ -19,10 +19,10 @@ public class UI {
 		System.out.println("Please enter the number possessed of each data type. Please seperate each with a space before pressing Enter.");
 		System.out.println("Facebook URL, LinkedIn URL, Other URL, Usernames, Emails, States");
 		
-		BasicSiteConnect site = new BasicSiteConnect("http://www.ign.com");
-		site.locationFetch();
+		BasicSiteConnect site = new BasicSiteConnect("http://www.rsriv.ece.ufl.edu/");
+		site.emailFetch();
 		for(int x = 0; x < 1; x++){
-			System.out.println(site.locations.getData(x) + " " + site.locations.getOccurences(x));
+			System.out.println(site.emails.getData(x) + " " + site.emails.getOccurences(x));
 		}	
 	}
 

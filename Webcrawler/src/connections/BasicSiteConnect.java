@@ -19,6 +19,7 @@ public class BasicSiteConnect {
 	public DataStore urls = new DataStore();
 	public DataStore locations = new DataStore();
 	public ArrayList<String> states = new ArrayList<String>();
+	public DataStore emails = new DataStore();
 	
 	public BasicSiteConnect(String url){
 		try {
@@ -99,5 +100,18 @@ public class BasicSiteConnect {
 			}
 		}
 		
+	}
+	
+	//Produces lots of false-positives
+	public void emailFetch(){
+		Elements list = doc.select("*:containsOwn(@)");
+		for(Element element : list){
+			emails.add(element.text());
+		}	
+	}
+	
+	//Method passes DataStore?
+	public void genericFetch(String str){
+		Elements list = doc.select("*:containsOwn(" + str + ")");
 	}
 }
