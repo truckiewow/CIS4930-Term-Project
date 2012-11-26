@@ -20,9 +20,9 @@ public class UI {
 		System.out.println("Facebook URL, LinkedIn URL, Other URL, Usernames, Emails, States");
 		
 		BasicSiteConnect site = new BasicSiteConnect("http://www.ign.com");
-		site.URLFetch();
-		for(int x = 0; x < 15; x++){
-			System.out.println(site.urls.getData(x) + " " + site.urls.getOccurences(x));
+		site.locationFetch();
+		for(int x = 0; x < 1; x++){
+			System.out.println(site.locations.getData(x) + " " + site.locations.getOccurences(x));
 		}	
 	}
 
