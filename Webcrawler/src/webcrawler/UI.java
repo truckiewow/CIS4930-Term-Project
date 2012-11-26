@@ -13,7 +13,6 @@ public class UI {
 	
 	public static void main(String[] args) {
 		
-		DataCruncher dataCruncher = new DataCruncher();
 		
 		System.out.println("Please enter the number possessed of each data type. Please seperate each with a space before pressing Enter.");
 		System.out.println("Facebook URL, LinkedIn URL, Other URL, Usernames, Emails, States");

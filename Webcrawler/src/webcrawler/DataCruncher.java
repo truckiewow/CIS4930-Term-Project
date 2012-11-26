@@ -1,6 +1,5 @@
 package webcrawler;
 
-import java.util.ArrayList;
 
 public class DataCruncher {
 	
