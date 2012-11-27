@@ -4,15 +4,9 @@ public class UI {
 
 	// Purpose of this class is to take input from user and provide organized output
 	
-	boolean hasBasicSiteUrls;
-	boolean hasFacebookUrls;
-	boolean hasLinkedInUrls;
-	boolean hasUsernames;
-	boolean hasEmails;
-	boolean hasStates;
-	
 	public static void main(String[] args) {
 		
+<<<<<<< HEAD
 		DataCruncher dataCruncher = new DataCruncher();
 		Filter filter = new Filter();
 		
@@ -27,6 +21,15 @@ public class UI {
 		String wordtest = "10 October, 1990 : " + filter.written("10 October, 1990") + "\n1 jan. 90 : " + filter.written("1 jan. 90");
 		System.out.println(wordtest);
 		
+=======
+		
+		DataCruncher d = new DataCruncher();
+		d.start(3, "http://www.reddit.com/");
+		System.out.println();
+		d.urls_MAIN.printTop5();
+		d.locations_MAIN.printTop5();
+		d.emails_MAIN.printTop5();
+>>>>>>> bf082d9957c6370451206548ac26197bcfd314fa
 	}
 
 }
