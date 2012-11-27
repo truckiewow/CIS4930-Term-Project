@@ -47,6 +47,13 @@ public class DataStore {
 		}
 	}
 	
+	public boolean contains(String str){
+		for(String s : data){
+			if(s.compareToIgnoreCase(str) == 0) return true;
+		}
+		return false;
+	}
+	
 	public int getOccurences(int index){
 		return number.get(index);
 	}
