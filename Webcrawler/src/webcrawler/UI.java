@@ -6,24 +6,15 @@ public class UI {
 
 	// Purpose of this class is to take input from user and provide organized output
 	
-	boolean hasBasicSiteUrls;
-	boolean hasFacebookUrls;
-	boolean hasLinkedInUrls;
-	boolean hasUsernames;
-	boolean hasEmails;
-	boolean hasStates;
-	
 	public static void main(String[] args) {
 		
 		
-		System.out.println("Please enter the number possessed of each data type. Please seperate each with a space before pressing Enter.");
-		System.out.println("Facebook URL, LinkedIn URL, Other URL, Usernames, Emails, States");
+		DataCruncher d = new DataCruncher();
+		d.fetchData("http://www.rsriv.ece.ufl.edu/");
+		d.urls_MAIN.printTop5();
+		d.locations_MAIN.printTop5();
+		d.emails_MAIN.printTop5();
 		
-		BasicSiteConnect site = new BasicSiteConnect("http://www.rsriv.ece.ufl.edu/");
-		site.emailFetch();
-		for(int x = 0; x < 1; x++){
-			System.out.println(site.emails.getData(x) + " " + site.emails.getOccurences(x));
-		}	
 	}
 
 }

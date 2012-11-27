@@ -66,6 +66,21 @@ public class DataStore {
 		System.out.println();
 	}
 	
+	public void printTop5(){
+		if(data.size() >= 5){
+			for(int x= 0; x < 5; x++) {
+				System.out.println(data.get(x) + " - Occurrences: " + number.get(x));
+			}
+			System.out.println();
+		}
+		else{
+			for(int x= 0; x < data.size(); x++) {
+				System.out.println(data.get(x) + " - Occurrences: " + number.get(x));
+			}
+			System.out.println();
+		}
+	}
+	
 	public void merge(DataStore d){
 		for(String str : d.data){
 			this.add(str);
