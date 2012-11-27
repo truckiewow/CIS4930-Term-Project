@@ -65,4 +65,10 @@ public class DataStore {
 		}
 		System.out.println();
 	}
+	
+	public void merge(DataStore d){
+		for(String str : d.data){
+			this.add(str);
+		}
+	}
 }
