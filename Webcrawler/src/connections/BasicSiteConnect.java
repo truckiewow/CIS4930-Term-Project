@@ -21,12 +21,8 @@ public class BasicSiteConnect {
 	public ArrayList<String> states = new ArrayList<String>();
 	public DataStore emails = new DataStore();
 	
-	public BasicSiteConnect(String url){
-		try {
-			doc = Jsoup.connect(url).get();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+	public BasicSiteConnect(String url) throws IOException{
+		doc = Jsoup.connect(url).get();
 		this.url = url;
 		states.add("Alabama");
 		states.add("Alaska");

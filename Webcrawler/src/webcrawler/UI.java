@@ -6,13 +6,13 @@ public class UI {
 	
 	public static void main(String[] args) {
 		
-<<<<<<< HEAD
+//<<<<<<< HEAD
 		DataCruncher dataCruncher = new DataCruncher();
 		Filter filter = new Filter();
 		
 		System.out.println("Please enter the number possessed of each data type. Please seperate each with a space before pressing Enter.");
 		System.out.println("Facebook URL, LinkedIn URL, Other URL, Usernames, Emails, States");
-		
+/*		
 		String url = "http://www.facebook.com/" + dataCruncher.getUsernames(0);
 		//Michael Testing date filter
 		System.out.println(url);
@@ -20,16 +20,17 @@ public class UI {
 		System.out.println(numtest);
 		String wordtest = "10 October, 1990 : " + filter.written("10 October, 1990") + "\n1 jan. 90 : " + filter.written("1 jan. 90");
 		System.out.println(wordtest);
-		
-=======
+*/
+//=======
 		
 		DataCruncher d = new DataCruncher();
-		d.start(3, "http://www.reddit.com/");
+		d.start(2, "http://www.rsriv.ece.ufl.edu/");
+
 		System.out.println();
 		d.urls_MAIN.printTop5();
 		d.locations_MAIN.printTop5();
 		d.emails_MAIN.printTop5();
->>>>>>> bf082d9957c6370451206548ac26197bcfd314fa
+//>>>>>>> bf082d9957c6370451206548ac26197bcfd314fa
 	}
 
 }
