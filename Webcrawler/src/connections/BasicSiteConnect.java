@@ -116,4 +116,19 @@ public class BasicSiteConnect {
 		this.locationFetch();
 		this.emailFetch();
 	}
+	
+	public String containsVerifiedData(String username, String firstname, String lastname, String location, String email){
+		String result = null;
+		Elements check1 = doc.select("*:contains(" + username + ")");
+		Elements check2 = doc.select("*:contains(" + firstname + ")");
+		Elements check3 = doc.select("*:contains(" + lastname + ")");
+		Elements check4 = doc.select("*:contains(" + location + ")");
+		Elements check5 = doc.select("*:contains(" + email + ")");
+		if(!check1.isEmpty()) result += " Username";
+		if(!check2.isEmpty()) result += " First Name";
+		if(!check3.isEmpty()) result += " Last Name";
+		if(!check4.isEmpty()) result += " Location";
+		if(!check5.isEmpty()) result += " Email";
+		return result;
+	}
 }

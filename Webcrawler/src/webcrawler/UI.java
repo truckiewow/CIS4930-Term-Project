@@ -4,14 +4,20 @@ public class UI {
 
 	// Purpose of this class is to take input from user and provide organized output
 	
+	String username_verified = null;
+	String firstname_verified = null;
+	String lastname_verified = null;
+	String location_verified = null;
+	String email_verified = null;
+	
 	public static void main(String[] args) {
 		
 //<<<<<<< HEAD
 		DataCruncher dataCruncher = new DataCruncher();
 		Filter filter = new Filter();
 		
-		System.out.println("Please enter the number possessed of each data type. Please seperate each with a space before pressing Enter.");
-		System.out.println("Facebook URL, LinkedIn URL, Other URL, Usernames, Emails, States");
+		System.out.println("Please enter verified data of each type. Please seperate each with a space before pressing Enter. If no data is possessed for a given type, enter null");
+		System.out.println("Username, First Name, Last Name, Location(State), Email");
 /*		
 		String url = "http://www.facebook.com/" + dataCruncher.getUsernames(0);
 		//Michael Testing date filter

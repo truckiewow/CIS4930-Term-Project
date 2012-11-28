@@ -12,14 +12,16 @@ public class DataCruncher {
 	// or throwing it away if unlikely. Possible statistical analysis.
 
 //<<<<<<< HEAD
-	String facebookUrl;
-	String linkedInUrl;
 	
 	//Possibly store all gathered information in arrayLists, then create methods to perform statistical analysis
 	ArrayList<String> usernames;
-	ArrayList<String> emails;
-	ArrayList<String> states;
+
 //=======
+	String username_verified = null;
+	String firstname_verified = null;
+	String lastname_verified = null;
+	String location_verified = null;
+	String email_verified = null;
 	ArrayList<String> exploredURLs = new ArrayList<String>();
 	DataStore urls_MAIN = new DataStore();
 	DataStore locations_MAIN = new DataStore();
