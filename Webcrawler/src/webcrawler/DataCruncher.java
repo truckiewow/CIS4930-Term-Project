@@ -17,18 +17,24 @@ public class DataCruncher {
 	ArrayList<String> usernames;
 
 //=======
-	String username_verified = null;
-	String firstname_verified = null;
-	String lastname_verified = null;
-	String location_verified = null;
-	String email_verified = null;
+	String username_verified;
+	String firstname_verified;
+	String lastname_verified;
+	String location_verified;
+	String email_verified;
 	ArrayList<String> exploredURLs = new ArrayList<String>();
 	DataStore urls_MAIN = new DataStore();
 	DataStore locations_MAIN = new DataStore();
 	DataStore emails_MAIN = new DataStore();
 //>>>>>>> bf082d9957c6370451206548ac26197bcfd314fa
 	
-	public DataCruncher(){
+	public DataCruncher(String username_verified, String firstname_verified, String lastname_verified, String location_verified, String email_verified){
+		this.username_verified = username_verified;
+		this.firstname_verified = firstname_verified;
+		this.lastname_verified = lastname_verified;
+		this.location_verified = location_verified;
+		this.email_verified = email_verified;
+		
 		usernames = new ArrayList<String>(1);
 		usernames.add("truckiewow");
 	}
