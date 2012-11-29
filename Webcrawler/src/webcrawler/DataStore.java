@@ -66,26 +66,18 @@ public class DataStore {
 		return data.get(index);
 	}
 	
-	public void print(){
-		for(int x= 0; x < data.size(); x++) {
+	public void print(int num){
+		for(int x= 0; x < num; x++) {
 			System.out.println(data.get(x) + " - Occurrences: " + number.get(x));
 		}
 		System.out.println();
 	}
 	
-	public void printTop5(){
-		if(data.size() >= 5){
-			for(int x= 0; x < 5; x++) {
-				System.out.println(data.get(x) + " - Occurrences: " + number.get(x));
-			}
-			System.out.println();
+	public void print(){
+		for(int x= 0; x < data.size(); x++) {
+			System.out.println(data.get(x) + " - Occurrences: " + number.get(x));
 		}
-		else{
-			for(int x= 0; x < data.size(); x++) {
-				System.out.println(data.get(x) + " - Occurrences: " + number.get(x));
-			}
-			System.out.println();
-		}
+		System.out.println();
 	}
 	
 	public void merge(DataStore d){

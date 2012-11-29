@@ -10,56 +10,66 @@ public class UI {
 
 	public static void main(String[] args) {
 		
-//<<<<<<< HEAD
 		Filter filter = new Filter();
 
 		Scanner scanner = new Scanner(System.in);
-		System.out.println("Please enter verified data of each type. If no data is possessed for a given type, just press enter.");
+		System.out.println("Please enter verified data of each type. If no data is possessed for a given type, enter \"null\".");
 		String username_verified = null;
 		String firstname_verified = null;
 		String lastname_verified = null;
 		String location_verified = null;
 		String email_verified = null;
-		System.out.println("Username: ");
+		String temp = null;
+		System.out.print("Username: ");
 		try{
-			username_verified = scanner.next();
+			temp = scanner.next();
+			if(temp.compareTo("null") == 0);
+			else username_verified = temp;
 		}
 		catch(NoSuchElementException e){
 			
 		}
-		System.out.println("First Name: ");
+		System.out.print("First Name: ");
 		try{
-			firstname_verified = scanner.next();
+			temp = scanner.next();
+			if(temp.compareTo("null") == 0);
+			else firstname_verified = temp;
 		}
 		catch(NoSuchElementException e){
 			
 		}
-		System.out.println("Last Name: ");
+		System.out.print("Last Name: ");
 		try{
-			lastname_verified = scanner.next();
+			temp = scanner.next();
+			if(temp.compareTo("null") == 0);
+			else lastname_verified = temp;
 		}
 		catch(NoSuchElementException e){
 			
 		}
-		System.out.println("Location(State): ");
+		System.out.print("Location(State): ");
 		try{
-			location_verified = scanner.next();
+			temp = scanner.next();
+			if(temp.compareTo("null") == 0);
+			else location_verified = temp;
 		}
 		catch(NoSuchElementException e){
 			
 		}
-		System.out.println("Email: ");
+		System.out.print("Email: ");
 		try{
-			email_verified = scanner.next();
+			temp = scanner.next();
+			if(temp.compareTo("null") == 0);
+			else email_verified = temp;
 		}
 		catch(NoSuchElementException e){
 			
 		}
-		
+		System.out.println();
 		scanner.close();
 
-
-/*		
+/*
+		DataCruncher dataCruncher = new DataCruncher(username_verified, firstname_verified, lastname_verified, location_verified, email_verified);
 		String url = "http://www.facebook.com/" + dataCruncher.getUsernames(0);
 		//Michael Testing date filter
 		System.out.println(url);
@@ -67,19 +77,19 @@ public class UI {
 		System.out.println(numtest);
 		String wordtest = "10 October, 1990 : " + filter.written("10 October, 1990") + "\n1 jan. 90 : " + filter.written("1 jan. 90");
 		System.out.println(wordtest);
+*/
 
-//=======
-		DataCruncher dataCruncher = new DataCruncher();
-		DataCruncher d = new DataCruncher();
-		d.start(2, "http://www.rsriv.ece.ufl.edu/");
+		
+		DataCruncher d = new DataCruncher(username_verified, firstname_verified, lastname_verified, location_verified, email_verified);
+		d.start(1, "http://www.rsriv.ece.ufl.edu/");
+		d.start(1, "http://www.cise.ufl.edu/~nemo/cybersecurity/");
 
 		System.out.println();
-		d.urls_MAIN.printTop5();
-		d.locations_MAIN.printTop5();
-		d.emails_MAIN.printTop5();
-*/		
+		d.urls_MAIN.print(5);
+		d.locations_MAIN.print(5);
+		d.emails_MAIN.print(5);
 		
-//>>>>>>> bf082d9957c6370451206548ac26197bcfd314fa
+
 	}
 
 }
