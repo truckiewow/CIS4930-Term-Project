@@ -106,11 +106,6 @@ public class BasicSiteConnect {
 		}	
 	}
 	
-	//Method passes DataStore?
-	public void genericFetch(String str){
-		Elements list = doc.select("*:containsOwn(" + str + ")");
-	}
-	
 	public void fetchAll(){
 		this.URLFetch();
 		this.locationFetch();

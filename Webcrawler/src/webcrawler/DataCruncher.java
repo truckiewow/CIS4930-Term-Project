@@ -11,12 +11,10 @@ public class DataCruncher {
 	// This class will take in data from each of the connect classes and process it, either keeping data
 	// or throwing it away if unlikely. Possible statistical analysis.
 
-//<<<<<<< HEAD
 	
 	//Possibly store all gathered information in arrayLists, then create methods to perform statistical analysis
 	ArrayList<String> usernames;
 
-//=======
 	String username_verified;
 	String firstname_verified;
 	String lastname_verified;
@@ -26,7 +24,6 @@ public class DataCruncher {
 	DataStore urls_MAIN = new DataStore();
 	DataStore locations_MAIN = new DataStore();
 	DataStore emails_MAIN = new DataStore();
-//>>>>>>> bf082d9957c6370451206548ac26197bcfd314fa
 	
 	public DataCruncher(String username_verified, String firstname_verified, String lastname_verified, String location_verified, String email_verified){
 		this.username_verified = username_verified;

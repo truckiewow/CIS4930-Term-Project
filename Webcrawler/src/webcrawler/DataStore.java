@@ -67,10 +67,13 @@ public class DataStore {
 	}
 	
 	public void print(int num){
-		for(int x= 0; x < num; x++) {
-			System.out.println(data.get(x) + " - Occurrences: " + number.get(x));
+		if(num > data.size()) print();
+		else{
+			for(int x= 0; x < num; x++) {
+				System.out.println(data.get(x) + " - Occurrences: " + number.get(x));
+			}
+			System.out.println();
 		}
-		System.out.println();
 	}
 	
 	public void print(){
