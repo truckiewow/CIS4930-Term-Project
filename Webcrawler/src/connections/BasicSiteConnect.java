@@ -81,10 +81,15 @@ public class BasicSiteConnect {
 	public void URLFetch(){
 		Elements list = doc.select("a[href]");
 		for(Element element : list){
-			if(element.attr("href").substring(0,1).compareTo("h") != 0){
-				urls.add(url + element.attr("href").substring(1));
+			try{
+				if(element.attr("href").substring(0,1).compareTo("h") != 0){
+					urls.add(url + element.attr("href"));
+				}
+				else urls.add(element.attr("href"));
 			}
-			else urls.add(element.attr("href"));
+			catch(StringIndexOutOfBoundsException e){
+				
+			}
 		}
 	}
 	

@@ -20,7 +20,7 @@ public class UI {
 		String location_verified = null;
 		String email_verified = null;
 		String temp = null;
-/*		
+		
 		System.out.print("Username: ");
 		try{
 			temp = scanner.next();
@@ -67,7 +67,7 @@ public class UI {
 			
 		}
 		System.out.println();
-*/
+
 		scanner.close();
 
 /*
@@ -83,10 +83,10 @@ public class UI {
 
 		
 		DataCruncher d = new DataCruncher(username_verified, firstname_verified, lastname_verified, location_verified, email_verified);
-		d.start(1, "http://www.google.com/search?q=lol+fred");
+		d.relevant_recursion(3, "http://www.cise.ufl.edu/~nemo/cybersecurity/", null, null);
 
 		System.out.println();
-		d.urls_MAIN.print(5);
+		d.urls_MAIN.print();
 		d.locations_MAIN.print(5);
 		d.emails_MAIN.print(5);
 		
