@@ -9,10 +9,13 @@ public class Filter {
 	}
 	
 	public String dates(String str) {
-		String M = "", D = "", Y = "", date;
+		String M = "", D = "", Y = "", date = written(str);
 		String temp[];
+		if(date != "Failed"){
+			return date;
+		}
 		//Check for xx(xx)/xx(xx)/xx(xx)
-		if(str.matches("[0-9]{1,4}/[0-9]{1,4}/[0-9]{1,4}")) {
+		else if(str.matches("[0-9]{1,4}/[0-9]{1,4}/[0-9]{1,4}")) {
 			temp = str.split("/");
 		    if (numbers(temp[0], "m") && numbers(temp[1],"d") && numbers(temp[2],"y")) {
 		    	System.out.println("MDY");
@@ -33,11 +36,7 @@ public class Filter {
 		    	D = temp[2];
 		    }
 		    else 
-		    	return str + " Failed";
-		    
-		    /*if (numbers(temp[0], "y")) {
-		    	Y = temp[0];
- 		    }*/
+		    	return "Failed";
 		}
 		else if(str.matches("[0-9]{1,4}-[0-9]{1,4}-[0-9]{1,4}")) {
 			temp = str.split("-");
@@ -60,13 +59,9 @@ public class Filter {
 		    	D = temp[2];
 		    }
 		    else 
-		    	return str + " Failed";
+		    	return "Failed";
 		    
-		    /*if (numbers(temp[0], "y")) {
-		    	Y = temp[0];
- 		    }*/
 		}
-		//else Y = "\nNO";
 		date = format(M,D,Y);
 		return date;
 	}
@@ -117,7 +112,7 @@ public class Filter {
 		return num;
 	}
 	
-	public  String written(String str) {
+	private  String written(String str) {
 		String date, m = "", d = "", y = "", temp[];
 		// D(D) MMM(M.,) Y(YYY)
 		if(str.matches("[0-9]{1,2} ((jan|Jan|JAN)|(feb|Feb|FEB)|(mar|Mar|MAR)|(apr|Apr|APR)|(may|May|MAY)|(jun|Jun|JUN)|(jul|Jul|JUL)|(aug|Aug|AUG)|(sep|Sep|SEP)|(oct|Oct|OCT)|(nov|Nov|NOV)|(dec|Dec|DEC))[a-zA-Z.,]+ [0-9]{2,4}")){
@@ -163,7 +158,65 @@ public class Filter {
 			date = format(m,d,y);
 			return date;
 		}
-		return str+ " Failed"; 
+		else if(str.matches("((jan|Jan|JAN)|(feb|Feb|FEB)|(mar|Mar|MAR)|(apr|Apr|APR)|(may|May|MAY)|(jun|Jun|JUN)|(jul|Jul|JUL)|(aug|Aug|AUG)|(sep|Sep|SEP)|(oct|Oct|OCT)|(nov|Nov|NOV)|(dec|Dec|DEC))[a-zA-Z.,]+ [0-9]{1,2}[.,]{0,1} [0-9]{2,4}")){
+			temp = str.split(" ");
+			String temp2[];
+			if(temp[1].contains(",")) {
+				temp2 = temp[1].split(",");
+				temp[1] = "";
+				for(int i=0; i<temp2.length; i++) {
+					temp[1] +=  temp2[i];
+				}
+			}
+			if(temp[1].contains(".")) {
+				temp2 = temp[1].split(".");
+				temp[1] = "";
+				for(int i=0; i<temp2.length; i++) {
+					temp[1] += temp2[i];
+				}
+			}
+			d = temp[1];
+			y = temp[2];
+			if(temp[0].matches("((jan|Jan|JAN))[a-zA-Z.,]+")) {
+				m = "01";
+			}
+			else if(temp[0].matches("((feb|Feb|FEB))[a-zA-Z.,]+")) {
+				m = "02";
+			}
+			else if(temp[0].matches("((mar|Mar|MAR))[a-zA-Z.,]+")) {
+				m = "03";
+			}
+			else if(temp[0].matches("((apr|Apr|APR))[a-zA-Z.,]+")) {
+				m = "04";
+			}
+			else if(temp[0].matches("((may|May|MAY))[a-zA-Z.,]+")) {
+				m = "05";
+			}
+			else if(temp[0].matches("((jun|Jun|JUN))[a-zA-Z.,]+")) {
+				m = "06";
+			}
+			else if(temp[0].matches("((jul|Jul|JUL))[a-zA-Z.,]+")) {
+				m = "07";
+			}
+			else if(temp[0].matches("((aug|Aug|AUG))[a-zA-Z.,]+")) {
+				m = "08";
+			}
+			else if(temp[0].matches("((sep|Sep|SEP))[a-zA-Z.,]+")) {
+				m = "09";
+			}
+			else if(temp[0].matches("((oct|Oct|OCT))[a-zA-Z.,]+")) {
+				m = "10";
+			}
+			else if(temp[0].matches("((nov|Nov|NOV))[a-zA-Z.,]+")) {
+				m = "11";
+			}
+			else if(temp[0].matches("((dec|Dec|DEC))[a-zA-Z.,]+")) {
+				m = "12";
+			}
+			date = format(m,d,y);
+			return date;
+		}
+		return " Failed"; 
 	}
 	
 	private String format(String m, String d, String y){
@@ -180,16 +233,9 @@ public class Filter {
 	    date = m + d + y;
 		return date;
 	}
+
+	public boolean email(String str) {
+		return str.matches("[a-zA-Z0-9-._]+@[a-zA-Z0-9._-]+[a-zA-Z0-9]+");
+	}
+	
 }
-//January 2
-//February 1
-//March 3
-//April 2
-//May  3
-//June 3
-//July 3
-//August 2
-//September 1
-//October 1
-//November 1
-//December 1
