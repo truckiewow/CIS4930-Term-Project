@@ -2,6 +2,7 @@ package connections;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -9,6 +10,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import webcrawler.DataStore;
+import webcrawler.Filter;
 
 public class BasicSiteConnect {
 
@@ -20,6 +22,7 @@ public class BasicSiteConnect {
 	public DataStore locations = new DataStore();
 	public ArrayList<String> states = new ArrayList<String>();
 	public DataStore emails = new DataStore();
+	public Filter filter = new Filter();
 	
 	public BasicSiteConnect(String url) throws IOException{
 		doc = Jsoup.connect(url).get();
@@ -106,8 +109,12 @@ public class BasicSiteConnect {
 	//Produces lots of false-positives
 	public void emailFetch(){
 		Elements list = doc.select("*:containsOwn(@)");
+		String temp;
 		for(Element element : list){
-			emails.add(element.text());
+		    temp = (filter.email(element.text())); 
+			if(temp != "Failed") {
+			  emails.add(temp);
+			}
 		}	
 	}
 	

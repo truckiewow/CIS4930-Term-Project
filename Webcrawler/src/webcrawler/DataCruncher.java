@@ -30,10 +30,7 @@ public class DataCruncher {
 		this.firstname_verified = firstname_verified;
 		this.lastname_verified = lastname_verified;
 		this.location_verified = location_verified;
-		this.email_verified = email_verified;
-		
-		usernames = new ArrayList<String>(1);
-		usernames.add("truckiewow");
+		this.email_verified = email_verified;	
 	}
 	
 	public String getUsernames(int index) {
@@ -235,8 +232,7 @@ public class DataCruncher {
 				catch(IOException e){
 					
 				}
-			
-		}
-	}
+			}
+	    }
 	}
 }

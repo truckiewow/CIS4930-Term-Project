@@ -11,7 +11,7 @@ public class UI {
 	public static void main(String[] args) {
 		
 		Filter filter = new Filter();
-
+/*
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Please enter verified data of each type. If no data is possessed for a given type, enter \"null\".");
 		String username_verified = null;
@@ -69,27 +69,31 @@ public class UI {
 		System.out.println();
 
 		scanner.close();
-
-/*
-		DataCruncher dataCruncher = new DataCruncher(username_verified, firstname_verified, lastname_verified, location_verified, email_verified);
-		String url = "http://www.facebook.com/" + dataCruncher.getUsernames(0);
-		//Michael Testing date filter
-		System.out.println(url);
-		String numtest = "10/08/1990 : " + filter.dates("10/08/1990") + "\n10/8/90 : " + filter.dates("10/8/90") + "\n8/10/90 : " + filter.dates("8/10/90") + "\n90/10/8 : " + filter.dates("90/10/8");
-		System.out.println(numtest);
-		String wordtest = "10 October, 1990 : " + filter.written("10 October, 1990") + "\n1 jan. 90 : " + filter.written("1 jan. 90");
-		System.out.println(wordtest);
 */
 
-		
+//		DataCruncher dataCruncher = new DataCruncher(username_verified, firstname_verified, lastname_verified, location_verified, email_verified);
+//		String url = "http://www.facebook.com/" + dataCruncher.getUsernames(0);
+		//Michael Testing date filter
+//		System.out.println(url);
+		String numtest = "NUMBER TEST:\n10/08/1990 : " + filter.dates("10/08/1990") + "\n10/8/90 : " + filter.dates("10/8/90") + "\n8/10/90 : " + filter.dates("8/10/90") + "\n90/10/8 : " + filter.dates("90/10/8");
+		System.out.println(numtest);
+		String wordtest = "WRITTEN TEST:\n10 October, 1990 : " + filter.dates("10 October, 1990") + "\n1 jan. 90 : " + filter.dates("1 jan. 90");
+		System.out.println(wordtest);
+		String email = "EMAIL TEST:\nblahb blah@blah blah : " + filter.email("blah blah@blah blah") + "\n.. : " + filter.email("..");
+		System.out.println(email);
+		String names = "NAME TEST: FIRSTVALID LASTVALID\nShaniqua : " + filter.first("Shaniqua") + " " + filter.last("Shaniqua") + "\nMichael : " + filter.first("Michael") + " " + filter.last("Michael") + "\nSmith : " + filter.first("Smith") + " " + filter.last("Smith");
+		System.out.println(names);
+/*
 		DataCruncher d = new DataCruncher(username_verified, firstname_verified, lastname_verified, location_verified, email_verified);
 		d.relevant_recursion(3, "http://www.cise.ufl.edu/~nemo/cybersecurity/", null, null);
 
-		System.out.println();
+		System.out.println("URLS :");
 		d.urls_MAIN.print();
+		System.out.println("Locations :");
 		d.locations_MAIN.print(5);
+		System.out.println("Emails :");
 		d.emails_MAIN.print(5);
-		
+*/	
 
 	}
 

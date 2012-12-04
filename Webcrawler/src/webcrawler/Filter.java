@@ -1,11 +1,41 @@
 package webcrawler;
 
-
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Filter {
+	private ArrayList<String> First, Last;
 
 	public Filter() {
 		//doesn't need anything yet
+		First = new ArrayList<String>();
+		Last = new ArrayList<String>();
+		Scanner sc;
+		try {
+			sc = new Scanner(new BufferedReader(new FileReader("src/randomNames.csv")));
+			String temp = sc.nextLine(), temp2[]; //first line is labels
+			while(sc.hasNext()){
+				temp = sc.nextLine();
+				temp2 = temp.split(",");
+				if (!(First.contains(temp2[0]))) {
+					First.add(temp2[0]);
+				}
+				if(!(Last.contains(temp2[1]))) {
+					Last.add(temp2[1]);
+				}
+			}
+			sc.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		//System.out.println(First.size() + " " + Last.size());
 	}
 	
 	public String dates(String str) {
@@ -18,19 +48,19 @@ public class Filter {
 		else if(str.matches("[0-9]{1,4}/[0-9]{1,4}/[0-9]{1,4}")) {
 			temp = str.split("/");
 		    if (numbers(temp[0], "m") && numbers(temp[1],"d") && numbers(temp[2],"y")) {
-		    	System.out.println("MDY");
+		    	//System.out.println("MDY");
 		    	M = temp[0];
 		    	D = temp[1];
 		    	Y = temp[2];
 		    }
 		    else if (numbers(temp[0], "d") && numbers(temp[1],"m") && numbers(temp[2],"y")) {
-		    	System.out.println("DMY");
+		    	//System.out.println("DMY");
 		    	D = temp[0];
 		    	M = temp[1];
 		    	Y = temp[2];
 		    }
 		    else if (numbers(temp[0], "y") && numbers(temp[1],"m") && numbers(temp[2],"d")) {
-		    	System.out.println("YMD");
+		    	//System.out.println("YMD");
 		    	Y = temp[0];
 		    	M = temp[1];
 		    	D = temp[2];
@@ -41,19 +71,19 @@ public class Filter {
 		else if(str.matches("[0-9]{1,4}-[0-9]{1,4}-[0-9]{1,4}")) {
 			temp = str.split("-");
 		    if (numbers(temp[0], "m") && numbers(temp[1],"d") && numbers(temp[2],"y")) {
-		    	System.out.println("MDY");
+		    	//System.out.println("MDY");
 		    	M = temp[0];
 		    	D = temp[1];
 		    	Y = temp[2];
 		    }
 		    else if (numbers(temp[0], "d") && numbers(temp[1],"m") && numbers(temp[2],"y")) {
-		    	System.out.println("DMY");
+		    	//System.out.println("DMY");
 		    	D = temp[0];
 		    	M = temp[1];
 		    	Y = temp[2];
 		    }
 		    else if (numbers(temp[0], "y") && numbers(temp[1],"m") && numbers(temp[2],"d")) {
-		    	System.out.println("YMD");
+		    	//System.out.println("YMD");
 		    	Y = temp[0];
 		    	M = temp[1];
 		    	D = temp[2];
@@ -216,7 +246,7 @@ public class Filter {
 			date = format(m,d,y);
 			return date;
 		}
-		return " Failed"; 
+		return "Failed"; 
 	}
 	
 	private String format(String m, String d, String y){
@@ -234,8 +264,27 @@ public class Filter {
 		return date;
 	}
 
-	public boolean email(String str) {
-		return str.matches("[a-zA-Z0-9-._]+@[a-zA-Z0-9._-]+[a-zA-Z0-9]+");
+	public String email(String str) {
+		String temp[] = str.split("[, ]");
+		for(int i = 0; i<temp.length; i++) {
+		  if(temp[i].matches("[a-zA-Z0-9-._]+@[a-zA-Z0-9._-]+[a-zA-Z0-9]+")) {
+			return temp[i];
+		  }
+		}
+		return "Failed";
 	}
 	
+	public String first(String str) {
+		if(First.contains(str)) {
+			return str;
+		}
+		return "Failed";
+	}
+	
+	public String last(String str) {
+		if(Last.contains(str)) {
+			return str;
+		}
+		return "Failed";
+	}
 }
