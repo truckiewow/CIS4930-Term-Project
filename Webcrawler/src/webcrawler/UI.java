@@ -1,5 +1,6 @@
 package webcrawler;
 
+import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -20,6 +21,15 @@ public class UI {
 		String location_verified = null;
 		String email_verified = null;
 		String temp = null;
+		
+		System.out.print("How many URLs? ");
+		int num = scanner.nextInt();
+		ArrayList<String> urls = new ArrayList<String>(num);
+		for(int x = 0; x < num; x++){
+			System.out.print("Enter URL: ");
+			urls.add(scanner.next());
+		}
+		scanner.close();
 		
 /*
 		
@@ -89,10 +99,13 @@ public class UI {
 */
 
 		DataCruncher d = new DataCruncher(username_verified, firstname_verified, lastname_verified, location_verified, email_verified);
-		d.recursion(3, "http://www.ssa.gov/oact/babynames/", null, null);
+		for(int y = 0; y < urls.size(); y++){
+			d.recursion(3, urls.get(y), null, null);
+		}
+
 
 		System.out.println("URLS :");
-		d.urls_MAIN.print();
+		d.urls_MAIN.print(5);
 		System.out.println("Locations :");
 		d.locations_MAIN.print(5);
 		System.out.println("Emails :");

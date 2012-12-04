@@ -92,8 +92,7 @@ public class Filter {
 		    	return "Failed";
 		    
 		}
-		date = format(M,D,Y);
-		return date;
+		return "Failed";
 	}
 	
 	private boolean numbers(String str, String mode) {
