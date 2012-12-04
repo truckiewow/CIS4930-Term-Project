@@ -24,6 +24,9 @@ public class DataCruncher {
 	DataStore urls_MAIN = new DataStore();
 	DataStore locations_MAIN = new DataStore();
 	DataStore emails_MAIN = new DataStore();
+	DataStore firstnames_MAIN = new DataStore();
+	DataStore lastnames_MAIN = new DataStore();
+	DataStore dates_MAIN = new DataStore();
 	
 	public DataCruncher(String username_verified, String firstname_verified, String lastname_verified, String location_verified, String email_verified){
 		this.username_verified = username_verified;
@@ -52,6 +55,9 @@ public class DataCruncher {
 					urls_MAIN.merge(temp1.urls);
 					locations_MAIN.merge(temp1.locations);
 					emails_MAIN.merge(temp1.emails);
+					firstnames_MAIN.merge(temp1.firstnames);
+					lastnames_MAIN.merge(temp1.lastnames);
+					dates_MAIN.merge(temp1.dates);
 					exploredURLs.add(url1);
 					String newURL1_1;
 					String newURL1_2;
@@ -81,6 +87,9 @@ public class DataCruncher {
 					urls_MAIN.merge(temp2.urls);
 					locations_MAIN.merge(temp2.locations);
 					emails_MAIN.merge(temp2.emails);
+					firstnames_MAIN.merge(temp2.firstnames);
+					lastnames_MAIN.merge(temp2.lastnames);
+					dates_MAIN.merge(temp2.dates);
 					exploredURLs.add(url2);
 					String newURL2_1;
 					String newURL2_2;
@@ -110,6 +119,9 @@ public class DataCruncher {
 					urls_MAIN.merge(temp3.urls);
 					locations_MAIN.merge(temp3.locations);
 					emails_MAIN.merge(temp3.emails);
+					firstnames_MAIN.merge(temp3.firstnames);
+					lastnames_MAIN.merge(temp3.lastnames);
+					dates_MAIN.merge(temp3.dates);
 					exploredURLs.add(url3);
 					String newURL3_1;
 					String newURL3_2;
@@ -148,6 +160,9 @@ public class DataCruncher {
 						urls_MAIN.merge(temp1.urls);
 						locations_MAIN.merge(temp1.locations);
 						emails_MAIN.merge(temp1.emails);
+						firstnames_MAIN.merge(temp1.firstnames);
+						lastnames_MAIN.merge(temp1.lastnames);
+						dates_MAIN.merge(temp1.dates);
 					}
 					exploredURLs.add(url1);
 					String newURL1_1;
@@ -179,6 +194,9 @@ public class DataCruncher {
 						urls_MAIN.merge(temp2.urls);
 						locations_MAIN.merge(temp2.locations);
 						emails_MAIN.merge(temp2.emails);
+						firstnames_MAIN.merge(temp2.firstnames);
+						lastnames_MAIN.merge(temp2.lastnames);
+						dates_MAIN.merge(temp2.dates);
 					}
 					exploredURLs.add(url2);
 					String newURL2_1;
@@ -210,6 +228,9 @@ public class DataCruncher {
 						urls_MAIN.merge(temp3.urls);
 						locations_MAIN.merge(temp3.locations);
 						emails_MAIN.merge(temp3.emails);
+						firstnames_MAIN.merge(temp3.firstnames);
+						lastnames_MAIN.merge(temp3.lastnames);
+						dates_MAIN.merge(temp3.dates);
 					}
 					exploredURLs.add(url3);
 					String newURL3_1;

@@ -22,6 +22,9 @@ public class BasicSiteConnect {
 	public DataStore locations = new DataStore();
 	public ArrayList<String> states = new ArrayList<String>();
 	public DataStore emails = new DataStore();
+	public DataStore firstnames = new DataStore();
+	public DataStore lastnames = new DataStore();
+	public DataStore dates = new DataStore();
 	public Filter filter = new Filter();
 	
 	public BasicSiteConnect(String url) throws IOException{
@@ -118,10 +121,51 @@ public class BasicSiteConnect {
 		}	
 	}
 	
+	public void firstnameFetch(){
+		Elements list = doc.select("*");
+		for(Element e : list){
+			Scanner s = new Scanner(e.text());
+			if(s.hasNext()){
+				String tmp = s.next();
+				if(filter.first(tmp).compareToIgnoreCase("Failed") == 0);
+				else firstnames.add(tmp);
+			}
+		}
+	}
+	
+	public void lastnameFetch(){
+		Elements list = doc.select("*");
+		for(Element e : list){
+			Scanner s = new Scanner(e.text());
+		if(s.hasNext()){
+			String tmp = s.next();
+			if(filter.last(tmp).compareToIgnoreCase("Failed") == 0);
+			else lastnames.add(tmp);
+		}
+		}
+	}
+	
+	public void dateFetch(){
+		Elements list = doc.select("*");
+		for(Element e : list){
+			Scanner s = new Scanner(e.text());
+		if(s.hasNext()){
+			String tmp = s.next();
+			if(tmp.contains("[0-9]")){
+					if(filter.dates(tmp).compareToIgnoreCase("Failed") == 0);
+					else dates.add(tmp);
+			}
+			}
+		}
+	}
+	
 	public void fetchAll(){
 		this.URLFetch();
 		this.locationFetch();
 		this.emailFetch();
+		this.firstnameFetch();
+		this.lastnameFetch();
+		this.dateFetch();
 	}
 	
 	public String containsVerifiedData(String username, String firstname, String lastname, String location, String email){

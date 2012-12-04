@@ -11,7 +11,7 @@ public class UI {
 	public static void main(String[] args) {
 		
 		Filter filter = new Filter();
-/*
+
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Please enter verified data of each type. If no data is possessed for a given type, enter \"null\".");
 		String username_verified = null;
@@ -20,6 +20,8 @@ public class UI {
 		String location_verified = null;
 		String email_verified = null;
 		String temp = null;
+		
+/*
 		
 		System.out.print("Username: ");
 		try{
@@ -69,7 +71,7 @@ public class UI {
 		System.out.println();
 
 		scanner.close();
-*/
+
 
 //		DataCruncher dataCruncher = new DataCruncher(username_verified, firstname_verified, lastname_verified, location_verified, email_verified);
 //		String url = "http://www.facebook.com/" + dataCruncher.getUsernames(0);
@@ -83,9 +85,11 @@ public class UI {
 		System.out.println(email);
 		String names = "NAME TEST: FIRSTVALID LASTVALID\nShaniqua : " + filter.first("Shaniqua") + " " + filter.last("Shaniqua") + "\nMichael : " + filter.first("Michael") + " " + filter.last("Michael") + "\nSmith : " + filter.first("Smith") + " " + filter.last("Smith");
 		System.out.println(names);
-/*
+		
+*/
+
 		DataCruncher d = new DataCruncher(username_verified, firstname_verified, lastname_verified, location_verified, email_verified);
-		d.relevant_recursion(3, "http://www.cise.ufl.edu/~nemo/cybersecurity/", null, null);
+		d.recursion(3, "http://www.ssa.gov/oact/babynames/", null, null);
 
 		System.out.println("URLS :");
 		d.urls_MAIN.print();
@@ -93,8 +97,16 @@ public class UI {
 		d.locations_MAIN.print(5);
 		System.out.println("Emails :");
 		d.emails_MAIN.print(5);
-*/	
+		System.out.println("First Names:");
+		d.firstnames_MAIN.print(5);
+		System.out.println("Last Names:");
+		d.lastnames_MAIN.print(5);
+		System.out.println("Dates:");
+		d.dates_MAIN.print(5);
+		
+	
 
+		
 	}
 
 }
