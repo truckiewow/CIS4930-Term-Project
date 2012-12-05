@@ -66,21 +66,36 @@ public class DataStore {
 		return data.get(index);
 	}
 	
-	public void print(int num){
-		if(num > data.size()) print();
+	public String print(int num){
+		String temp = "";
+		if(num > data.size()) temp = print();
 		else{
 			for(int x= 0; x < num; x++) {
-				System.out.println(data.get(x) + " - Occurrences: " + number.get(x));
+				temp += data.get(x) + " - Occurrences: " + number.get(x) + "\n";
 			}
-			System.out.println();
 		}
+		return temp;
 	}
 	
-	public void print(){
-		for(int x= 0; x < data.size(); x++) {
-			System.out.println(data.get(x) + " - Occurrences: " + number.get(x));
+	public String printthreshold(int num){
+		String temp = "";
+		if(num > data.size()) temp = print();
+		else{
+			for(int x=0; x < data.size(); x++) {
+				if(number.get(x) >= num) {
+					temp += data.get(x) + " - Occurrences: " + number.get(x) + "\n";
+				}
+			}
 		}
-		System.out.println();
+		return temp;
+	}
+	
+	public String print(){
+		String temp = "";
+		for(int x= 0; x < data.size(); x++) {
+			temp += data.get(x) + " - Occurrences: " + number.get(x) + "\n";
+		}
+		return temp;
 	}
 	
 	public void merge(DataStore d){

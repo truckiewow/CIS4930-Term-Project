@@ -1,5 +1,8 @@
 package webcrawler;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
@@ -9,10 +12,10 @@ public class UI {
 	// Purpose of this class is to take input from user and provide organized output
 	
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
 		Filter filter = new Filter();
-
+		BufferedWriter bw = new BufferedWriter(new FileWriter("results.txt"));
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Please enter verified data of each type. If no data is possessed for a given type, enter \"null\".");
 		String username_verified = null;
@@ -104,21 +107,26 @@ public class UI {
 		}
 
 
-		System.out.println("URLS :");
-		d.urls_MAIN.print(5);
-		System.out.println("Locations :");
-		d.locations_MAIN.print(5);
-		System.out.println("Emails :");
-		d.emails_MAIN.print(5);
-		System.out.println("First Names:");
-		d.firstnames_MAIN.print(5);
-		System.out.println("Last Names:");
-		d.lastnames_MAIN.print(5);
-		System.out.println("Dates:");
-		d.dates_MAIN.print(5);
-		
-	
-
+		System.out.println("URLS : \n" + d.urls_MAIN.print(5));
+		//d.urls_MAIN.print(5);
+		System.out.println("Locations : \n" + d.locations_MAIN.print(5));
+		//d.locations_MAIN.print(5);
+		System.out.println("Emails : \n" + d.emails_MAIN.print(5));
+		//d.emails_MAIN.print(5);
+		System.out.println("First Names: \n" + d.firstnames_MAIN.print(5));
+		//d.firstnames_MAIN.print(5);
+		System.out.println("Last Names: \n" + d.lastnames_MAIN.print(5));
+		//d.lastnames_MAIN.print(5);
+		System.out.println("Dates: \n" + d.dates_MAIN.print(5));
+		//d.dates_MAIN.print(5);
+		bw.write("URLS : \n" + d.urls_MAIN.print() + "\n");
+		bw.write("Locations : \n" + d.locations_MAIN.print() + "\n");
+		bw.write("Emails : \n" + d.emails_MAIN.print() + "\n");
+		bw.write("First Names: \n" + d.firstnames_MAIN.print() + "\n");
+		bw.write("Last Names: \n" + d.lastnames_MAIN.print() + "\n");
+		bw.write("Dates: \n" + d.dates_MAIN.print() + "\n");
+		bw.close();
+		//System.out.println(filter.last("Cooper"));
 		
 	}
 
